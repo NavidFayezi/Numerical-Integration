@@ -17,7 +17,10 @@ def simpsons_rule(f, h, a, b):  # integrate f(x) from x = a to x = b using simps
         sigma *= h/3
         return sigma
     except Exception as e:
-        print("zero exception")
+        if e.__class__ == ZeroDivisionError:
+            print("Integral does not converge")
+        else:
+            print(str(e))
 
 
 def test_func(x):
